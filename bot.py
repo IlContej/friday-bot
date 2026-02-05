@@ -139,7 +139,7 @@ def main():
 
     app.add_handler(ChatMemberHandler(new_member, ChatMemberHandler.CHAT_MEMBER))
     app.add_handler(MessageHandler(filters.TEXT, guard_messages))
-    app.add_handler(CommandHandler("status", status))
+    app.add_handler(MessageHandler(filters.Regex(r"^/status"), status))
 
     app.run_polling()
 
